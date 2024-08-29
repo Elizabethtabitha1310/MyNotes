@@ -1,11 +1,13 @@
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
-android {
+    android {
     namespace = "com.example.mynotes"
     compileSdk = 34
 
@@ -38,6 +40,7 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
 }
 
 dependencies {
@@ -52,6 +55,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
     // Hilt dependencies
     implementation(libs.hilt.android.compiler)
     implementation(libs.hilt.android)
@@ -66,5 +70,11 @@ dependencies {
      implementation(libs.androidx.lifecycle.livedata.ktx)
      implementation(libs.androidx.lifecycle.viewmodel.savedstate)
      implementation(libs.androidx.lifecycle.runtime.ktx)
-    }
+
+    // Safe Args dependencies
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.safe.args.gradle.plugin)
+
+}
 

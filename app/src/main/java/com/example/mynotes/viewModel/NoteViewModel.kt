@@ -1,4 +1,4 @@
-package com.example.noteapp.viewModel
+package com.example.mynotes.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -30,10 +30,10 @@ class NoteViewModel @Inject constructor(private val noteDao: NoteDao):ViewModel(
 
     fun deleteNote(note: Note) = viewModelScope.launch {
         noteDao.deleteNote(note)
-        notesChannel.send(NotesEvent.ShowUndoSnackBar("Note Deleted Successfully",note))
+        notesChannel.send(NotesEvent.ShowUndoSnackBar("Note Deleted Successfully", note))
     }
     sealed class NotesEvent{
-        data class ShowUndoSnackBar(val msg:String,val note:Note):NotesEvent()
-    object  NavigateToNotesFragment:NotesEvent()
+        data class ShowUndoSnackBar(val msg:String,val note:Note): NotesEvent()
+    object  NavigateToNotesFragment: NotesEvent()
     }
 }
