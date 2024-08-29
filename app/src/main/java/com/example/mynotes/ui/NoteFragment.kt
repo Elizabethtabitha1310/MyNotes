@@ -9,9 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.mynotes.R
 import com.example.mynotes.adapter.NoteAdapter
+import com.example.mynotes.data.entity.Note
 import com.example.mynotes.databinding.FragmentNoteBinding
 import com.example.mynotes.viewModel.NoteViewModel
-import com.example.mynotes.entity.Note
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

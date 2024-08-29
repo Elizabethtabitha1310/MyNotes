@@ -20,7 +20,7 @@
             app:destination="@id/noteFragment2" />
         <argument
             android:name="note"
-            app:argType="com.example.mynotes.entity.Note"
+            app:argType="com.example.mynotes.data.entity.Note"
             app:nullable="true" />
     </fragment>
 </navigation>

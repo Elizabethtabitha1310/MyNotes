@@ -3,7 +3,7 @@ package com.example.mynotes.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mynotes.entity.Note
+import com.example.mynotes.data.entity.Note
 import com.example.mynotes.databinding.ItemNotesBinding
 import java.text.SimpleDateFormat
 

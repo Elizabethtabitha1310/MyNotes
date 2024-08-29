@@ -2,8 +2,8 @@ package com.example.mynotes.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mynotes.data.entity.Note
 import com.example.noteapp.dao.NoteDao
-import com.example.mynotes.entity.Note
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow

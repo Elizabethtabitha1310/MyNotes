@@ -54,8 +54,8 @@ class AddEditNoteFragment:Fragment(R.layout.fragment_addeditanote) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.notesEvent.collect{ event ->
                 if(event is NoteViewModel.NotesEvent.NavigateToNotesFragment){
-                  val action = AddEditNoteFragmentDirections.actionAddEditNoteFragment2ToNoteFragment2()
-                    findNavController().navigate(action)
+                 val action= AddEditNoteFragmentDirections.actionAddEditNoteFragment2ToNoteFragment2()
+                 findNavController().navigate(action)
                 }
             }
         }
