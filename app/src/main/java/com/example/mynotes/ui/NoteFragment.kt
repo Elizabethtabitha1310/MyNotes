@@ -11,7 +11,7 @@ import com.example.mynotes.R
 import com.example.mynotes.adapter.NoteAdapter
 import com.example.mynotes.databinding.FragmentNoteBinding
 import com.example.mynotes.viewModel.NoteViewModel
-import com.example.noteapp.data.entity.Note
+import com.example.mynotes.entity.Note
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -19,10 +19,10 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class NoteFragment: Fragment(R.layout.fragment_note),NoteAdapter.OnNoteClickListener {
 
+    val viewModel by viewModels<NoteViewModel>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewModel by viewModels<NoteViewModel>()
         val binding = FragmentNoteBinding.bind(requireView())
 
         binding.apply {
@@ -56,7 +56,6 @@ class NoteFragment: Fragment(R.layout.fragment_note),NoteAdapter.OnNoteClickList
     }
 
     override fun onNoteLongClick(note: Note) {
-        val viewModel by viewModels<NoteViewModel>()
 viewModel.deleteNote(note)
     }
 }

@@ -3,7 +3,7 @@ package com.example.mynotes.viewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.noteapp.dao.NoteDao
-import com.example.noteapp.data.entity.Note
+import com.example.mynotes.entity.Note
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -33,7 +33,7 @@ class NoteViewModel @Inject constructor(private val noteDao: NoteDao):ViewModel(
         notesChannel.send(NotesEvent.ShowUndoSnackBar("Note Deleted Successfully", note))
     }
     sealed class NotesEvent{
-        data class ShowUndoSnackBar(val msg:String,val note:Note): NotesEvent()
+        data class ShowUndoSnackBar(val msg:String,val note: Note): NotesEvent()
     object  NavigateToNotesFragment: NotesEvent()
     }
 }
