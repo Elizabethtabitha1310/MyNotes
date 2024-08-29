@@ -12,6 +12,7 @@ import com.example.mynotes.adapter.NoteAdapter
 import com.example.mynotes.databinding.FragmentNoteBinding
 import com.example.mynotes.viewModel.NoteViewModel
 import com.example.noteapp.data.entity.Note
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -34,16 +35,28 @@ class NoteFragment: Fragment(R.layout.fragment_note),NoteAdapter.OnNoteClickList
             viewLifecycleOwner.lifecycleScope.launch {
                 viewModel.notes.collect{ notes->
                     val adapter = NoteAdapter(notes,this@NoteFragment)
+               recyclerViewNote.adapter = adapter
+                }
+            }
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewModel.notesEvent.collect{ event->
+                    if(event is NoteViewModel.NotesEvent.ShowUndoSnackBar){
+                        Snackbar.make(requireView(),event.msg,Snackbar.LENGTH_LONG).setAction("UNDO"){
+                           viewModel.insertNote(event.note)
+                        }.show()
+                    }
                 }
             }
         }
     }
 
     override fun onNoteClick(note: Note) {
-        TODO("Not yet implemented")
+        val action = NoteFragmentDirections.actionNoteFragment2ToAddEditNoteFragment2(note)
+   findNavController().navigate(action)
     }
 
     override fun onNoteLongClick(note: Note) {
-        TODO("Not yet implemented")
+        val viewModel by viewModels<NoteViewModel>()
+viewModel.deleteNote(note)
     }
 }
