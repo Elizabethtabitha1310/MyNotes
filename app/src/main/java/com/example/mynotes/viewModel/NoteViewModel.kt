@@ -12,8 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NoteViewModel @Inject constructor(private val noteDao: NoteDao):ViewModel() {
-
-    val notes = noteDao.getAllNotes()
+ val notes = noteDao.getAllNotes()
     val notesChannel = Channel<NotesEvent>()
     val  notesEvent=notesChannel.receiveAsFlow()
 
