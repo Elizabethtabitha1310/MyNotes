@@ -46,14 +46,13 @@ plugins {
 
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.navigation.fragment.ktx) // Keep only one occurrence
+    implementation(libs.androidx.navigation.ui.ktx) // Keep only one occurrence
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -67,17 +66,14 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.compiler)
 
-        //view model,livedata and lifecycle
-     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-     implementation(libs.androidx.lifecycle.livedata.ktx)
-     implementation(libs.androidx.lifecycle.viewmodel.savedstate)
-     implementation(libs.androidx.lifecycle.runtime.ktx)
+    // ViewModel, LiveData, and Lifecycle
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
     // Safe Args dependencies
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.navigation.safe.args.gradle.plugin)
-
-
 }
+
 
