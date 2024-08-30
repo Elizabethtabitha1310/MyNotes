@@ -19,7 +19,7 @@ plugins {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+            testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -41,10 +41,7 @@ plugins {
     buildFeatures {
         viewBinding = true
     }
-        packagingOptions {
-            exclude("META-INF/AL2.0")
-            exclude("META-INF/LGPL2.1")
-        }
+
     }
 
 
@@ -80,6 +77,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.navigation.safe.args.gradle.plugin)
+
 
 }
 
